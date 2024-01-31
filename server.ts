@@ -5,14 +5,15 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import bootstrap from './src/main.server';
 
+
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
   const serverDistFolder = dirname(fileURLToPath(import.meta.url));
-  const browserDistFolder = resolve(serverDistFolder, '../browser');
-  const indexHtml = join(serverDistFolder, 'index.server.html');
-
+  const browserDistFolder = resolve(serverDistFolder, '../dist/toristy24/browser');
+  const indexHtml = join(serverDistFolder, '../dist/toristy24/server/index.server.html');
   const commonEngine = new CommonEngine();
+  console.log('Dist foler', browserDistFolder);
 
   server.set('view engine', 'html');
   server.set('views', browserDistFolder);
@@ -52,5 +53,4 @@ function run(): void {
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
 }
-
 run();
