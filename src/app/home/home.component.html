@@ -1,1 +1,79 @@
-<p>home works!</p>
+<!-- Hero Section with Background Graphic, Strapi Headline, and 'Why Toristy?' Overlay -->
+<div class="relative bg-white overflow-hidden text-center" style="height: 600px; background: url('https://res.cloudinary.com/dwoluaptn/image/upload/v1692946527/tt_background_8d384a23c7.jpg') no-repeat center center; background-size: cover;">
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black opacity-60"></div>
+
+    <!-- Text Container for Strapi Headline -->
+    <div *ngIf="homeContent?.data?.attributes" class="absolute inset-0 flex flex-col items-center justify-center z-10">
+    <!-- Strapi Headline -->
+             <div class="mb-8" *ngIf="homeContent?.data?.attributes?.headline">
+                 <h1 class="text-4xl font-bold text-white">{{ homeContent.data.attributes.headline }}</h1>
+            </div>
+        
+        <!-- 'Why Toristy?' Headline -->
+        <div class="text-center mb-4">
+            <h2 class="text-2xl font-bold text-white">Why Toristy?</h2>
+        </div>
+        
+        <!-- Icons and Text Container -->
+        <div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
+            <!-- Each Icon with Text -->
+            <!-- Repeat this block for each icon -->
+            <div class="text-center px-4">
+                <div class="mx-auto h-12 w-12 text-white">
+                    <fa-icon [icon]="faPlanetCircleXmark" class="fa-lg"></fa-icon> 
+                </div>
+                <p class="text-white mt-2">You'll receive a full refund if you cancel at least 24 hours in advance of most experiences.</p>
+            </div>
+
+            <div class="text-center px-4">
+                 <div class="mx-auto h-12 w-12 text-white">
+                    <fa-icon [icon]="faPiggyBank" class="fa-lg"></fa-icon> 
+                </div>
+                <p class="text-white mt-2">Your money is kept safe until the service is delivered</p>
+            </div>
+             <div class="text-center px-4">
+                 <div class="mx-auto h-12 w-12 text-white">
+                    <fa-icon [icon]="faMagnifyingGlassPlus" class="fa-lg"></fa-icon> 
+                </div>
+                <p class="text-white mt-2">We search for the best unique experiences</p>
+            </div>
+             <div class="text-center px-4">
+                <div class="mx-auto h-12 w-12 text-white">
+                    <fa-icon [icon]="faRankingStar" class="fa-lg"></fa-icon> 
+                </div>
+                <p class="text-white mt-2">We only work with the best suppliers</p>
+            </div>
+         </div>
+    </div>
+</div>
+  
+  <!-- Products Grid -->
+  <div class="bg-gray-50">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-extrabold text-gray-900">Unique experiences and things to do from around the world - Strapi - shortDesc</h2>
+      <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+        <!-- Product 1 -->
+        <div class="group relative">
+          <!-- Image placeholder -->
+          <div class="w-full h-56 bg-gray-200 rounded-md overflow-hidden group-hover:opacity-75">
+            <!-- Product image here -->
+          </div>
+          <div class="mt-4 flex justify-between">
+            <div>
+              <h3 class="text-sm text-gray-700">
+                <a href="#">
+                  <span aria-hidden="true" class="absolute inset-0"></span>
+                  Product Title
+                </a>
+              </h3>
+              <p class="mt-1 text-sm text-gray-500">Product Description</p>
+            </div>
+            <p class="text-sm font-medium text-gray-900">Price</p>
+          </div>
+        </div>
+        <!-- Repeat for each product, replacing Product Title, Description, and Price -->
+      </div>
+    </div>
+  </div>
+  

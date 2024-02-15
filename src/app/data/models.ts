@@ -88,18 +88,16 @@ export interface CategoryAttributes {
   }
   
   export interface ImageAttributes {
-    url: string;
     formats: ImageFormats;
   }
   
   export interface ImageData {
-    url: string;
-    formats: ImageFormats;
-    attributes: ImageAttributes;
-    data: {
-      attributes: ImageAttributes;
-    };
+    small: string;
+    medium: string;
+    large: string;
+    orig: string;
   }
+  
   
   export interface Service {
     id: string;
@@ -122,8 +120,8 @@ export interface CategoryAttributes {
     serviceType: string;
     serviceprovider: ServiceProvider;
     lineOfBusinessId: string;
+    onlybookingwithreviewslink: string;
     starting_price: Price;
-    cancellation_policy: CancellationPolicy[];
     cancellation_text: string;
   }
   
@@ -142,12 +140,6 @@ export interface CategoryAttributes {
     lng: string;
   }
   
-  interface Image {
-    small: string;
-    medium: string;
-    large: string;
-    orig: string;
-  }
   
   interface ServiceProvider {
     id: string;
@@ -168,5 +160,64 @@ export interface CategoryAttributes {
     hours: number;
   }
   
-
+  export interface Home {
+    data: {
+      id: number;
+      attributes: {
+        headline: string;
+        shortDesc: string;
+        longDesc: string;
+        createdAt: string;
+        updatedAt: string;
+        publishedAt: string;
+        homeImage: {
+          data: {
+            id: number;
+            attributes: {
+              name: string;
+              alternativeText: string | null;
+              caption: string | null;
+              width: number;
+              height: number;
+              formats: {
+                large?: HomeImageFormat;
+                medium?: HomeImageFormat;
+                small?: HomeImageFormat;
+                thumbnail?: HomeImageFormat;
+              };
+              hash: string;
+              ext: string;
+              mime: string;
+              size: number;
+              url: string;
+              previewUrl: string | null;
+              provider: string;
+              provider_metadata: {
+                public_id: string;
+                resource_type: string;
+              };
+              createdAt: string;
+              updatedAt: string;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  interface HomeImageFormat {
+    ext: string;
+    url: string;
+    hash: string;
+    mime: string;
+    name: string;
+    path: string | null;
+    size: number;
+    width: number;
+    height: number;
+    provider_metadata: {
+      public_id: string;
+      resource_type: string;
+    };
+  }
   
