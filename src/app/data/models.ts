@@ -170,6 +170,9 @@ export interface CategoryAttributes {
         createdAt: string;
         updatedAt: string;
         publishedAt: string;
+        countries: {
+          data: Country[];
+        }
         homeImage: {
           data: {
             id: number;
@@ -196,8 +199,7 @@ export interface CategoryAttributes {
                 public_id: string;
                 resource_type: string;
               };
-              createdAt: string;
-              updatedAt: string;
+              
             }
           }
         }
@@ -220,4 +222,28 @@ export interface CategoryAttributes {
       resource_type: string;
     };
   }
+  
+  interface Country {
+    id: number;
+    attributes: {
+      slug: string;
+      countryName: string;
+      countryid: number;
+      countryImage: {
+        data: {
+          id: number;
+          attributes: {
+            alternativeText: string;
+            formats: {
+              small: {
+                url: string;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+ 
   

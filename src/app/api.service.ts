@@ -32,9 +32,9 @@ export class ApiService {
       );
   }
 
-  // Method to fetch home page content
+  // Method to fetch home page content with country images
   getHomePageContent(): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/index?populate=*`);
+    return this.http.get<any>(`${this.baseUrl}/index?populate[countries][populate][countryImage]=true`);
   }
 
 
